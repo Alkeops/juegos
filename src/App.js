@@ -1,18 +1,20 @@
-import './App.scss';
+import './styles/App.scss';
+
 
 function App() {
+ const precio = 20;
   return (
     <div className="App">
       <header className="header">
         <img src={"https://www.adidas.mx/glass/react/c478798/assets/img/icon-adidas-logo.svg"} className="header__logo" alt="logo" />
         <div className='header__nav'><h3>Hombre</h3><h3>Mujer</h3><h3>Niños</h3></div>
-        <div className="header__buttons"><button>Carrito</button></div>
+        <div className="header__buttons"><button>Carrito</button></div> 
       </header>
       <main className="products">
         <div className="card">
              <span className="card__name">Zapato deportivo</span>
              <p className="card__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum distinctio error voluptas? Quidem alias ratione, deleniti cum nisi eos soluta?</p>
-             <span className="card__price">$55</span>
+             <span className="card__price">{precio}</span>
              <span className="card__stock">Quedan 5</span>
         </div>
         <div className="card">
