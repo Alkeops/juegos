@@ -98,8 +98,9 @@ button {
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  grid-auto-rows: 481px;
-  grid-gap: 5px;
+  grid-auto-rows: mimax(481px, 800px);
+  column-gap: 5px;
+  row-gap: 25px;
   align-items: center;
 }
 
@@ -184,10 +185,10 @@ button {
 
   &__top {
     position: relative;
-
     img {
       width: 100%;
       height: auto;
+      max-height: 450px;
     }
   }
 
