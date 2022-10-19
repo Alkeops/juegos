@@ -1,2 +1,6 @@
-const Button = ({onClick, children}) => <button className="banner__button" onClick={onClick}>{children}</button>
+const Button = ({ onClick, children, leftIcon, rightIcon }) => (
+  <button className="banner__button" onClick={onClick}>
+   {leftIcon} {children} {rightIcon}
+  </button>
+);
 export default Button;

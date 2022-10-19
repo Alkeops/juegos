@@ -1,7 +1,16 @@
+import { useEffect } from "react";
 import Item from "./Item";
 
 const AppContainer = () => {
     //TODO logica de peticiones
+
+    useEffect(() => {
+
+
+        //SIMULAR LA PETICION
+
+    console.log("Ya esta montado")
+    },[])
 
     return <div className="products">
           

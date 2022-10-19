@@ -87,7 +87,18 @@ button {
     }
   }
 }
-
+.grid{
+  display: grid;
+  grid-auto-flow: column;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  span{
+    font-size: 26px;
+  }
+}
 .content {
   width: 95%;
   max-width: 1400px;
@@ -109,8 +120,9 @@ button {
     cursor: pointer;
   }
 }
+
 .banner {
-  background: #ede734;
+ /*  background: #ede734; */
 
   &__content {
     padding: 20px 0;
