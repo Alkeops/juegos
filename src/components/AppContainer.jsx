@@ -1,49 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Item from "./Item";
+import { getProducts } from "../api/products";
 
 const AppContainer = () => {
-    //TODO logica de peticiones
+  //TODO logica de peticiones
+  const [productos, setProductos] = useState([]);
 
-    useEffect(() => {
+  useEffect(() => {
+    getProducts()
+      .then((items) => setProductos(items))
+      .catch((e) => console.log(e));
+  }, []);
 
-
-        //SIMULAR LA PETICION
-
-    console.log("Ya esta montado")
-    },[])
-
-    return <div className="products">
-          
-    <Item 
-    nombre="Tenis Ultrabux" 
-    categoria="Hombre Running" 
-    tag="10 colores" 
-    precio={4200} 
-    imagen="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/c60b90c34e0f413f916caa4300d3589f_9366/tenis-galaxy-4.jpg"
-    />
-    <Item 
-    nombre="Tenis Otro" categoria="Hombre Running" 
-    tag="10 colores" 
-    precio={4200} 
-    imagen="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/c60b90c34e0f413f916caa4300d3589f_9366/tenis-galaxy-4.jpg"
-    />
-     <Item 
-    nombre="Tenis Ultrabux" 
-    categoria="Hombre Running" 
-    tag="10 colores" 
-    precio={4200} 
-    imagen="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/c60b90c34e0f413f916caa4300d3589f_9366/tenis-galaxy-4.jpg"
-    />
-    <Item 
-    nombre="Tenis Otro" categoria="Hombre Running" 
-    tag="10 colores" 
-    precio={4200} 
-    imagen="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/c60b90c34e0f413f916caa4300d3589f_9366/tenis-galaxy-4.jpg"
-    />
-
-
-
-</div>
-}
+  return (
+    <div className="products">
+      {productos.map((producto) => {
+        return (
+          <Item
+            key={producto.id}
+            nombre={producto.nombre}
+            categoria={producto.categoria}
+            tag={producto.tag}
+            precio={producto.precio}
+            imagen={producto.imagen}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 export default AppContainer;
