@@ -2,17 +2,20 @@ import { useEffect, useState } from "react";
 import Item from "./Item";
 import { getProducts } from "../api/products";
 import { Loader } from "./Loader";
+import {useParams} from "react-router-dom";
 
-const AppContainer = () => {
-  //TODO logica de peticiones
+const ItemContainer = () => {
+  const {categoryId} = useParams();
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getProducts("coches")
+    setProductos([])
+    setLoading(true);
+    getProducts(categoryId)
       .then((items) =>{ setProductos(items); setLoading(false); })
       .catch((e) => console.log(e));
-  }, []);
+  }, [categoryId]);
 
   return (
     <div className="products">
@@ -21,6 +24,7 @@ const AppContainer = () => {
         return (
           <Item
             key={producto.id}
+            id={producto.id}
             nombre={producto.nombre}
             categoria={producto.categoria}
             tag={producto.tag}
@@ -33,4 +37,4 @@ const AppContainer = () => {
   );
 };
 
-export default AppContainer;
+export default ItemContainer;

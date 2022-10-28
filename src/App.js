@@ -1,26 +1,26 @@
-import AppContainer from './components/AppContainer';
-import { Navbar } from './components/Navbar';
-import './styles/styles.scss';
-import Banner from './components/Banner';
-import Footer from './components/Footer';
-import { AiFillAlert, AiFillCarryOut } from "react-icons/ai";
-import Button from './components/Button';
-import { useState } from 'react';
-import Counter from './components/Counter';
+import "./styles/styles.scss";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Category } from "./pages/Category";
+import { Detail } from "./pages/Detail";
+import { UserLayout } from "./components/UserLayout";
 
 function App() {
-
-     return (
-          <div className="App">
-               <Navbar />
-               <Banner promocion="ÚNETE AL CLUB Y CONSIGUE UN 15% DE DESCUENTO" boton="registrate" onClick={() => console.log("click en registrate")} />
-               <main className="content">
-                    <AppContainer />
-               </main>
-               <Banner promocion="ÚNETE AL CLUB Y CONSIGUE UN 35% DE DESCUENTO" boton="unete" onClick={() => console.log("click en unete")} />
-               <Footer />
-          </div>
-     );
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path={"/"} element={<UserLayout />}>
+            <Route index element={<Home />} />
+            <Route path={"/category/:categoryId"} element={<Category />} />
+            <Route path={"/product/:productId"} element={<Detail />} />
+            <Route path="/cart" element={<div>Cart</div>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
