@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  &__logo {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    height: auto;
+  }
+
+  &__nav {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 20px;
+
+    &-item {
+      color: #121212;
+      font-weight: 600;
+    }
+  }
+
+  &__buttons {
+    button {
+      font-size: 16px;
+      padding: 5px 10px;
+    }
+  }
+
+  &__link {
+    transition: background-size .4s ease;
+    background: linear-gradient(to bottom, transparent 62%, #f7ff00 0) center center/0% 75% no-repeat;
+    font-size: 18px;
+    padding: 0 6px 2px 6px;
+    cursor: pointer;
+    color: rgba(10, 14, 24, 0.7);
+    letter-spacing: .08rem;
+    text-decoration: none;
+    &:hover {
+      background-size: 100% 100%;
+    }
+    &--active{
+      background-size: 80% 100%;
+    }
+  }
+}

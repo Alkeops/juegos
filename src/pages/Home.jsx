@@ -1,8 +1,22 @@
-import Banner from "../components/Banner";
-import AppContainer from "../components/ItemContainer";
-import { UserLayout } from "../components/UserLayout";
+import { useEffect, useState } from "react";
+import { getProducts } from "../api/products";
+import { Banner } from "../components/Banner";
+import { ItemContainer } from "../components/ItemContainer";
 
 export const Home = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setProducts([]);
+    setLoading(true);
+    getProducts()
+      .then((items) => {
+        setProducts(items);
+        setLoading(false);
+      })
+      .catch((e) => console.log(e));
+  }, []);
   return (
     <>
       <Banner
@@ -11,7 +25,7 @@ export const Home = () => {
         onClick={() => console.log("click en registrate")}
       />
       <main className="content">
-        <AppContainer />
+        <ItemContainer products={products} loading={loading} />
       </main>
       <Banner
         promocion="ÚNETE AL CLUB Y CONSIGUE UN 35% DE DESCUENTO"

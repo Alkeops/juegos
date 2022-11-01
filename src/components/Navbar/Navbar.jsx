@@ -1,27 +1,25 @@
 import { Link, NavLink } from "react-router-dom";
+import "./Navbar.scss";
 
 const links = ["Hombre", "Mujer", "Infantil"];
 
 export const Navbar = () => {
   return (
-    <header className="header">
+    <header className="navbar">
       <Link to="/">
         <img
           src={
             "https://www.adidas.mx/glass/react/c478798/assets/img/icon-adidas-logo.svg"
           }
-          className="header__logo"
+          className="navbar__logo"
           alt="logo"
         />
       </Link>
-      <div className="header__nav">
+      <div className="navbar__nav">
         {links.map((elemento) => {
           return (
             <NavLink
-              style={({ isActive }) => ({
-                color: isActive ? "red" : "#000000",
-                textDecoration: "none",
-              })}
+              className={({isActive}) => (isActive ? "navbar__link navbar__link--active" : "navbar__link")}
               to={`/category/${elemento.toLowerCase()}`}
               key={elemento}
             >
