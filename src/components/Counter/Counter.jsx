@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "../Button";
 
 const Counter = ({ stock, onAdd }) => {
@@ -13,20 +13,19 @@ const Counter = ({ stock, onAdd }) => {
   const handleSubstract = () => {
     if (contador > 0) setContador(contador - 1);
   };
-
+  
   return (
     <div className="grid">
-      <Button onClick={() => handleAdd()}> Sumar </Button>
+      <Button onClick={handleAdd}> Sumar </Button>
       <span style={{ minWidth: 25 }}>{contador}</span>
-      <Button onClick={() => handleSubstract()}> Restar </Button>
+      <Button onClick={handleSubstract}> Restar </Button>
       <Button
         onClick={() => {
-          if (contador) onAdd();
+          if (contador) onAdd(contador);
         }}
         disabled={!contador}
       >
-        {" "}
-        Agregar al carrito{" "}
+        Agregar al carrito
       </Button>
     </div>
   );

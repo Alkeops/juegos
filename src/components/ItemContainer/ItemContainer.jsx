@@ -1,7 +1,7 @@
 import { Item } from "../Item";
 import { Loader } from "../Loader/Loader";
 
-const ItemContainer = ({ products, loading }) => {
+const ItemContainer = ({ products, loading, onAdd }) => {
   return (
     <div className="products">
       {loading ? <Loader qty={3} /> : null}
@@ -15,6 +15,7 @@ const ItemContainer = ({ products, loading }) => {
             tag={producto.tag}
             precio={producto.precio}
             imagen={producto.imagen}
+            onAdd={onAdd}
           />
         );
       })}

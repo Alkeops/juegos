@@ -14,6 +14,13 @@ export const Detail = () => {
       setProduct(data);
     });
   }, [productId]);
+  
+
+  const handleAdd = (contador) => {
+    //Id producto
+    //Queremos que haga algo
+    console.log("producto agregado", { ...product, contador });
+  };
 
   return (
     <div className="content detail">
@@ -28,10 +35,7 @@ export const Detail = () => {
         <span className="detail__info-stock">
           ¡Quedan solo {product?.stock} disponibles!
         </span>
-        <Counter
-          stock={product?.stock}
-          onAdd={() => console.log("Agregando al carrito")}
-        />
+        <Counter stock={product?.stock} onAdd={handleAdd} />
       </div>
     </div>
   );
