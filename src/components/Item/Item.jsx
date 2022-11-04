@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
 
+import { useContext } from "react";
+
 import { Tag } from "../Tag";
 import "./Item.scss";
+import { useCartContext } from "../../context/cartContext";
 
-const Item = ({ id, precio, imagen, nombre, categoria, tag, onAdd }) => {
+const Item = ({ id, precio, imagen, nombre, categoria, tag }) => {
   const navigate = useNavigate();
-
+  const {addProduct} = useCartContext();
   return (
     <div className={"item"} onClick={() => navigate(`/product/${id}`)}>
       <div className="item__top">
@@ -22,7 +25,7 @@ const Item = ({ id, precio, imagen, nombre, categoria, tag, onAdd }) => {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            onAdd?.({ nombre });
+            addProduct({id, nombre, precio, categoria, tag, imagen}, 1)
           }}
         >
           Añadir al carrito
