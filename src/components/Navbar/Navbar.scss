@@ -48,4 +48,22 @@
       background-size: 80% 100%;
     }
   }
+  &__cart{
+    font-size: 26px;
+    color: #121212;
+    position: relative;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-qty{
+      position: absolute;
+      top: -10px;
+      right: -4px;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: left;
+      min-width: 17px;
+    }
+  }
 }

@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.scss";
 
+import { AiOutlineShoppingCart } from "react-icons/ai";
+
 const links = ["Hombre", "Mujer", "Infantil"];
 
 export const Navbar = () => {
@@ -19,7 +21,9 @@ export const Navbar = () => {
         {links.map((elemento) => {
           return (
             <NavLink
-              className={({isActive}) => (isActive ? "navbar__link navbar__link--active" : "navbar__link")}
+              className={({ isActive }) =>
+                isActive ? "navbar__link navbar__link--active" : "navbar__link"
+              }
               to={`/category/${elemento.toLowerCase()}`}
               key={elemento}
             >
@@ -28,14 +32,9 @@ export const Navbar = () => {
           );
         })}
       </div>
-      <div className="header__buttons">
-        <Link to="/cart">Carrito</Link>
-      </div>
-      {/*
-       <Contador stock={10} onAdd={(cantidad)=>{
-        haz algo con la cantidad
-      }}/> 
-      */}
+      <Link to="/cart" className="navbar__cart">
+        <AiOutlineShoppingCart /> <span className="navbar__cart-qty">5</span>
+      </Link>
     </header>
   );
 };

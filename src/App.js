@@ -6,6 +6,7 @@ import { Category } from "./pages/Category";
 import { Detail } from "./pages/Detail";
 import { UserLayout } from "./components/UserLayout";
 
+
 function App() {
   return (
     <div className="App">
