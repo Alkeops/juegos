@@ -23,6 +23,9 @@ export const Detail = () => {
     addProduct(product, qty);
   };
 
+  if (!Object.keys(product).length) {
+    return <div>Loading...</div>; 
+  }
   return (
     <div className="content detail">
       <img src={product.imagen} />

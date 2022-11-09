@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../api/products";
 import { Banner } from "../components/Banner";
+import { Button } from "../components/Button";
 import { ItemContainer } from "../components/ItemContainer";
+import {AiOutlineShoppingCart} from "react-icons/ai";
+import { IconSelector } from "../components/IconSelector";
 
 export const Home = () => {
   const [products, setProducts] = useState([]);
@@ -18,9 +21,6 @@ export const Home = () => {
       .catch((e) => console.log(e));
   }, []);
 
-  const onAdd = (producto) => {
-    console.log(producto);
-  };
 
   return (
     <>
@@ -30,11 +30,7 @@ export const Home = () => {
         onClick={() => console.log("click en registrate")}
       />
       <main className="content">
-        <ItemContainer
-          products={products}
-          loading={loading}
-          onAdd={onAdd}
-        />
+        <ItemContainer products={products} loading={loading} />
       </main>
       <Banner
         promocion="ÚNETE AL CLUB Y CONSIGUE UN 35% DE DESCUENTO"
