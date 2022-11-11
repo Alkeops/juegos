@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../api/products";
+import { getProducts, cargarData } from "../api/products";
 import { Banner } from "../components/Banner";
 import { Button } from "../components/Button";
 import { ItemContainer } from "../components/ItemContainer";
-import {AiOutlineShoppingCart} from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IconSelector } from "../components/IconSelector";
 
 export const Home = () => {
@@ -20,7 +20,6 @@ export const Home = () => {
       })
       .catch((e) => console.log(e));
   }, []);
-
 
   return (
     <>
