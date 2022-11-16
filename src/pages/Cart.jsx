@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { addOrder } from "../api/orders";
+import { updateManyProducts } from "../api/products";
 import { Button } from "../components/Button";
 import { useCartContext } from "../context/cartContext";
 
@@ -11,10 +13,10 @@ export const Cart = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
 
-  const { getTotal, cart } = useCartContext();
+  const { getTotal, cart, emptyCart } = useCartContext();
 
 
-  const createOrder = () => {
+  const createOrder = async () => {
 
     const items = cart.map(({ id, nombre, qty, precio }) => ({
       id,
@@ -23,18 +25,19 @@ export const Cart = () => {
       price: precio,
     }));
 
-  /*  const usuario = {
-    name: 'Manuel', phone: "123123", email: "asd@asd.com"
-   } */
-   
     const order = {
       buyer: {name, phone, email},
       items,
       total: getTotal(),
     };
 
-    console.log({ order });
-    /* navigate("/") */
+   const id =  await addOrder(order);
+   
+    await updateManyProducts(items)
+
+    emptyCart();
+
+   /*  navigate("/") */
   };
   return (
     <div className="content">

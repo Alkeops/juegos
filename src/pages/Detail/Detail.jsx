@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getProduct } from "../../api/products";
+import { getProduct  } from "../../api/products";
 import { Counter } from "../../components/Counter";
 import { useCartContext } from "../../context/cartContext";
 
