@@ -6,7 +6,7 @@ const ItemContainer = ({ products, loading }) => {
     <div className="products">
       {loading && <Loader qty={3} />}
       {products.map((producto) => {
-        return <Item {...producto} />;
+        return <Item key={producto.id} {...producto} />;
       })}
     </div>
   );
