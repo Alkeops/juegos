@@ -1,14 +1,13 @@
-
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBKSGTFOP3OY9Ji86KcCzyrRAQGVLoXMzk",
-  authDomain: "aidas-ec70a.firebaseapp.com",
-  projectId: "aidas-ec70a",
-  storageBucket: "aidas-ec70a.appspot.com",
-  messagingSenderId: "876210800563",
-  appId: "1:876210800563:web:0b8d91c4d55900db8b2dc6"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase

@@ -9,6 +9,7 @@ import { CartProvider } from "./context/cartContext";
 import { Cart } from "./pages/Cart";
 
 function App() {
+  console.log(process.env.FIREBASE_API_KEY)
   return (
     <div className="App">
       <CartProvider>
